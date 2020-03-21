@@ -1,6 +1,6 @@
 # 001components
 
-## Project setup
+## 项目初始化安装
 ```
 npm install
 ```
