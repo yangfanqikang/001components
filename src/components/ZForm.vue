@@ -22,8 +22,15 @@ export default {
     }
   },
   methods: {
-    validate() {
-      console.log("22222222");
+    validate(cb) {
+      console.log("form");
+
+      const tasks = this.$children
+        .filter(item => item.prop)
+        .map(item => item.validate());
+      Promise.all(tasks)
+        .then(() => cb(true))
+        .catch(() => cb(false));
     }
   }
 };

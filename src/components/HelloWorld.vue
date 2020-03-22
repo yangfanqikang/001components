@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <z-form :model="model" :rules="rules">
+    <z-form ref="form" :model="model" :rules="rules">
       <ZFormItem label="用户名" prop="username">
         <ZInput
           v-model="model.username"
@@ -26,6 +26,7 @@
 import ZForm from "@/components/ZForm.vue";
 import ZFormItem from "@/components/ZFormItem.vue";
 import ZInput from "@/components/ZInput.vue";
+import Notice from "@/components/Notice.vue";
 export default {
   name: "HelloWorld",
   components: {
@@ -50,9 +51,27 @@ export default {
   },
   methods: {
     login() {
-      
+      console.log(this.$refs.form);
+
+      this.$refs.form.validate(valid => {
+        console.log("111");
+
+        if (valid) {
+          this.$create(Notice, {
+            title: "注意注意",
+            message: "登陆",
+            duration: 3000
+          }).show();
+        } else {
+          this.$create(Notice, {
+            title: "注意注意",
+            message: "填写信息",
+            duration: 3000
+          }).show();
+        }
+      });
     }
-  },
+  }
 };
 </script>
 
