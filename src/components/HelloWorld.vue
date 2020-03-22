@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <input type="text" v-focus />
     <z-form ref="form" :model="model" :rules="rules">
       <ZFormItem label="用户名" prop="username">
         <ZInput
@@ -27,6 +28,8 @@ import ZForm from "@/components/ZForm.vue";
 import ZFormItem from "@/components/ZFormItem.vue";
 import ZInput from "@/components/ZInput.vue";
 import Notice from "@/components/Notice.vue";
+import focus from "../directives/focus";
+console.log(focus)
 export default {
   name: "HelloWorld",
   components: {
@@ -36,6 +39,9 @@ export default {
   },
   props: {
     msg: String
+  },
+  directives: {
+    focus
   },
   data() {
     return {
