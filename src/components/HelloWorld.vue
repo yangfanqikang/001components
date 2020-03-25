@@ -29,7 +29,7 @@ import ZFormItem from "@/components/ZFormItem.vue";
 import ZInput from "@/components/ZInput.vue";
 import Notice from "@/components/Notice.vue";
 import focus from "../directives/focus";
-console.log(focus)
+console.log(focus);
 export default {
   name: "HelloWorld",
   components: {
@@ -55,6 +55,9 @@ export default {
       }
     };
   },
+  mounted() {
+    this.test();
+  },
   methods: {
     login() {
       console.log(this.$refs.form);
@@ -76,6 +79,12 @@ export default {
           }).show();
         }
       });
+    },
+    test() {
+      let test1 = function() {
+        console.log(this);
+      };
+      test1();
     }
   }
 };

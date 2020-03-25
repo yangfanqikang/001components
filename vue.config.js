@@ -3,7 +3,7 @@ module.exports = {
   lintOnSave: false,
   devServer: {
     before(app) {
-      app.get("/api/courses", (req, res) => {
+      app.get(" ", (req, res) => {
         setTimeout(() => {
           res.json([
             { name: "全栈", price: "8999" },
